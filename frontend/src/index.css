@@ -1,0 +1,15 @@
+/* Custom resets for internal nested markdown lists and outlines */
+ol, ul {
+  padding-left: 24px !important;
+  margin: 10px 0 !important;
+  text-align: left !important;
+}
+
+li {
+  margin-bottom: 6px !important;
+  line-height: 1.6 !important;
+}
+
+p {
+  margin: 4px 0 10px 0 !important;
+}
