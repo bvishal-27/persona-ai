@@ -7,7 +7,7 @@ An AI-powered conversational platform that simulates real-time, highly authentic
 * **Production API (Backend):** [----]
 * **Public GitHub Repository:** [I----]
 
----
+--
 
 ## 🛠️ Technical Stack & Architecture
 * **Frontend:** React (Vite), React-Markdown, Lucide Icons, Custom Contextual Tailwind/CSS

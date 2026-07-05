@@ -24,15 +24,17 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5001/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          persona: persona,
-          history: messages,
-          message: currentInput
-        })
-      });
+ 
+
+const response = await fetch('https://persona-ai-tau-beige.vercel.app/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    persona: persona,
+    history: messages,
+    message: currentInput
+  })
+});
       
       const data = await response.json();
       setMessages((prev) => [...prev, { sender: 'bot', text: data.reply }]);
@@ -46,7 +48,7 @@ function App() {
   return (
     <div style={{ display: 'flex', height: '100vh', fontFamily: 'system-ui, sans-serif', backgroundColor: '#0f172a', color: '#f8fafc' }}>
       
-      {/* SIDEBAR NAVIGATION CONTROLS */}
+     
       <div style={{ width: '280px', backgroundColor: '#1e293b', padding: '24px 20px', display: 'flex', flexDirection: 'column', gap: '16px', borderRight: '1px solid #334155' }}>
         <h2 style={{ fontSize: '1.4rem', fontWeight: 'bold', color: currentTheme.primary, transition: 'color 0.3s' }}>MasterJi AI</h2>
         
@@ -69,7 +71,7 @@ function App() {
         </div>
       </div>
 
-      {/* CORE DISPLAY WINDOW */}
+    
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
         
         {/* APP CONTEXT TOP NAVBAR */}
@@ -83,7 +85,7 @@ function App() {
           </div>
         </div>
 
-        {/* MESSAGING AREA LOGS */}
+       
         <div style={{ flex: 1, padding: '24px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {messages.length === 0 && (
             <div style={{ margin: 'auto', textAlign: 'center' }}>
@@ -107,7 +109,7 @@ function App() {
                 {msg.sender === 'user' ? <User size={18} color="#0f172a" /> : <span>{persona === 'hitesh' ? '🚀' : '💻'}</span>}
               </div>
               
-              {/* FIXED LEFT-ALIGNED BUBBLE VIEW */}
+              
               <div style={{ 
                 padding: '14px 20px', 
                 borderRadius: '12px', 
@@ -134,7 +136,7 @@ function App() {
           )}
         </div>
 
-        {/* INTERACTIVE FORM INPUT BAR */}
+       
         <form onSubmit={handleSend} style={{ padding: '24px', backgroundColor: '#1e293b', borderTop: '1px solid #334155', display: 'flex', gap: '12px' }}>
           <input 
             type="text" 
